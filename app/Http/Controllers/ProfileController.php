@@ -2,22 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Setting;
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): View
+    protected $settings;
+
+    public function __construct()
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
+        $this->settings = Setting::all();
+
+        foreach ($this->settings as $setting) {
+            $this->{$setting->setting_name} = $setting->value;
+            View::share($setting->setting_name, $setting->value); // Share each setting globally
+        }
+
+    }
+    
+    public function edit(Request $request)
+    {
+        // return view('profile.edit', [
+        //     'user' => $request->user(),
+        // ]);
+
+        return view('template', [
+            'user' => $request->user(), 
+            'content' => 'profiles.edit'
         ]);
     }
 
@@ -34,7 +50,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', 'profile-updated');
     }
 
     /**
