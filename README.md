@@ -28,6 +28,7 @@ Follow these steps to install and run this project:
    ```sh
    cp .env.example .env
    ```
+   modify it according to your environment
 
 4. **Generate Application Key**
    ```sh
