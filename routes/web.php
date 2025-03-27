@@ -15,23 +15,12 @@ Route::get('/', function () {
 });
 
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/admin', function () {
-    
-    return "You are logged in as ADMIN!";
-})->middleware(['auth', 'verified','role:admin']);
-
-Route::get('/operator', function () {
-    return "You are logged in as OPERATOR!";
-})->middleware(['auth', 'verified','role:operator|admin']);
-
 
 Route::middleware(['auth', 'verified','role_or_permission:admin|operator'])->group(function () {
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
@@ -51,7 +40,6 @@ Route::middleware(['auth', 'verified','role_or_permission:admin|operator'])->gro
     Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 });
-
 
 Route::middleware(['auth', 'verified','role_or_permission:admin'])->group(function () {
     Route::resource('permission', PermissionController::class);

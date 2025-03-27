@@ -45,7 +45,7 @@
     <div class="m-header">
       <a href="{{route('dashboard')}}" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
-        <img src="{{asset('storage/uploads/setting_file/1742982177_logo.png')}}" class="img-fluid" style="max-height: 80px;" >
+        <img src="{{asset('storage/uploads/setting_file/' . $logo)}}" class="img-fluid" style="max-height: 80px;" >
       </a>
     </div>
     <div class="navbar-content">
