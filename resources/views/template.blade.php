@@ -58,6 +58,29 @@
         </li>
 
         <li class="pc-item pc-caption">
+          <label>Transaction</label>
+          <i class="ti ti-dashboard"></i>
+        </li>
+        <li class="pc-item">
+          <a href="{{route('transaction.index')}}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-basket"></i></span>
+            <span class="pc-mtext">Transaction</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{route('order_supplier.index')}}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-box-multiple"></i></span>
+            <span class="pc-mtext">Order in Supplier</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{route('payment.index')}}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-currency-dollar"></i></span>
+            <span class="pc-mtext">Payment</span>
+          </a>
+        </li>
+
+        <li class="pc-item pc-caption">
           <label>Master</label>
           <i class="ti ti-dashboard"></i>
         </li>
@@ -73,7 +96,19 @@
             <span class="pc-mtext">Category</span>
           </a>
         </li>
-
+        <li class="pc-item">
+          <a href="{{route('customer.index')}}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-friends"></i></span>
+            <span class="pc-mtext">Customer</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{route('supplier.index')}}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-man"></i></span>
+            <span class="pc-mtext">Supplier</span>
+          </a>
+        </li>
+        
         <li class="pc-item pc-caption">
           <label>User Management</label>
           <i class="ti ti-news"></i>
@@ -104,7 +139,25 @@
           <li class="pc-item">
             <a href="{{route('setting.index')}}" class="pc-link">
               <span class="pc-micon"><i class="ti ti-settings"></i></span>
-              <span class="pc-mtext">Setting</span>
+              <span class="pc-mtext">Global Setting</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="{{route('attribute.index')}}" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-settings"></i></span>
+              <span class="pc-mtext">Custom Attribute</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="{{route('workflow.index')}}" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-settings"></i></span>
+              <span class="pc-mtext">Workflow Status</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="{{route('payment_term.index')}}" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-settings"></i></span>
+              <span class="pc-mtext">Payment Term</span>
             </a>
           </li>
 

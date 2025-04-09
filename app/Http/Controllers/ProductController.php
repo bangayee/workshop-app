@@ -39,16 +39,20 @@ class ProductController extends Controller
                 })
                 ->addColumn('image', function ($row) {
                     if ($row->image) {
-                        return '<img src="' . asset('storage/uploads/products/' . $row->image) . '" alt="Product Image" width="50">';
+                        $imageUrl = asset('storage/uploads/products/' . $row->image);
+                        return '<a href="#" class="image-link" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="' . $imageUrl . '">
+                                    <img src="' . $imageUrl . '" alt="Product Image" style="width: 50px; height: 50px; object-fit: cover;">
+                                </a>';
                     }
                     return 'No Image';
                 })
                 ->addColumn('action', function($row){
-                    $btn = '<a href="' . route('product.show', $row->id) . '" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a> ';
-                    $btn .= '<a href="' . route('product.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a> ';
-                    $btn .= '<a href="' . route('product.destroy', $row->id) . '" class="btn btn-danger btn-sm" onclick="event.preventDefault(); if(confirm(\'Are you sure?\')) { document.getElementById(\'delete-form-' . $row->id . '\').submit(); }"><i class="fas fa-trash"></i></a>';
-                    $btn .= '<form id="delete-form-' . $row->id . '" action="' . route('product.destroy', $row->id) . '" method="POST" style="display: none;">' . csrf_field() . method_field('DELETE') . '</form>';
-                    return $btn;
+                    return '<div class="d-flex justify-content-center">
+                                <a href="' . route('product.show', $row->id) . '" class="btn btn-info btn-sm mx-1"><i class="fas fa-eye"></i></a>
+                                <a href="' . route('product.edit', $row->id) . '" class="btn btn-warning btn-sm mx-1"><i class="fas fa-edit"></i></a>
+                                <a href="' . route('product.destroy', $row->id) . '" class="btn btn-danger btn-sm mx-1" onclick="event.preventDefault(); if(confirm(\'Are you sure?\')) { document.getElementById(\'delete-form-' . $row->id . '\').submit(); }"><i class="fas fa-trash"></i></a>
+                                <form id="delete-form-' . $row->id . '" action="' . route('product.destroy', $row->id) . '" method="POST" style="display: none;">' . csrf_field() . method_field('DELETE') . '</form>
+                            </div>';
                 })
                 ->rawColumns(['image', 'action']) // Allow HTML rendering for these columns
                 ->make(true);
@@ -69,7 +73,7 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required',
+            'price' => 'required',
             'category_id' => 'required',
             'image' => 'required|mimes:png,jpg,jpeg|max:2048', // Validate file type and size
         ]);
@@ -83,6 +87,7 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->price = $request->price;
         $product->category_id = $request->category_id;
 
         // Handle file upload
@@ -109,7 +114,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'price' => 'required',
             'category_id' => 'required',
             'image' => 'nullable|mimes:png,jpg,jpeg|max:2048', // Allow image to be null and validate file type and size
         ]);

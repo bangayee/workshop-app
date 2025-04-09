@@ -27,7 +27,7 @@
     <div class="card">
       
         <div class="card-header">
-          <h3>EDIT DESCRIPTION</h3>
+          <h3>EDIT CATEGORY</h3>
         </div>
         <div class="card-body">
           @if ($errors->any())
