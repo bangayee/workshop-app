@@ -1,6 +1,4 @@
 
-
-```markdown
 # Workshop App
 
 A Laravel-based custom furniture pre-order management system. This app enables users to configure custom furniture products (dimensions, materials, colors, etc.) and manage the full order workflow.
@@ -63,8 +61,5 @@ A Laravel-based custom furniture pre-order management system. This app enables u
 - Vite + Blade
 - MySQL
 
-## License
 
-MIT License
-```
 
