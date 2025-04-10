@@ -1,64 +1,70 @@
-# Laravel Starter Project
 
-A starter project using Laravel with integration of popular plugins such as Laravel Breeze, Spatie, and Datatable.
+
+```markdown
+# Workshop App
+
+A Laravel-based custom furniture pre-order management system. This app enables users to configure custom furniture products (dimensions, materials, colors, etc.) and manage the full order workflow.
 
 ## Features
-- **Laravel Breeze**: Simple and lightweight authentication for Laravel.
-- **Spatie**: Permission management and additional features.
-- **Datatable**: Interactive table display with search and filter features.
+
+- **User Authentication** using Laravel Breeze
+- **Role & Permission** with Spatie
+- **Dynamic Product Configuration**
+- **Interactive Datatables**
+- **Order Tracking System**
 
 ## Installation
 
-Follow these steps to install and run this project:
-
-1. **Clone Repository**
-   ```sh
-   git clone https://github.com/bangayee/laravel-project-starter.git
-   cd laravel-project-starter
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bangayee/workshop-app.git
+   cd workshop-app
    ```
 
-2. **Install Dependencies**
-   ```sh
+2. Install dependencies:
+   ```bash
    composer install
    npm install
    npm run build
    ```
 
-3. **Copy Configuration File**
-   ```sh
+3. Set up environment variables:
+   ```bash
    cp .env.example .env
-   ```
-   modify it according to your environment
-
-4. **Generate Application Key**
-   ```sh
    php artisan key:generate
    ```
 
-5. **Link Storage**
-   ```sh
+4. Link storage:
+   ```bash
    php artisan storage:link
    ```
 
-6. **Seed Database**
-   ```sh
-   php artisan db:seed --class=RolePermissionSeeder
-   php artisan db:seed --class=UserSeeder
-   php artisan db:seed --class=DatabaseSeeder
+5. Seed the database (optional for initial testing):
+   ```bash
+   php artisan db:seed
    ```
 
-7. **Start the Server**
-   ```sh
+6. Serve the application:
+   ```bash
    php artisan serve
    ```
 
 ## Testing Credentials
-For testing purposes, use the following login information:
-```
-Username: admin@gmail.com
-Password: 12345678
-```
 
----
-If you have any questions or issues, please create an issue in this repository or contact the project owner.
+- **Email:** `admin@gmail.com`
+- **Password:** `12345678`
+
+## Tech Stack
+
+- Laravel 10.x
+- Laravel Breeze (Tailwind + Alpine)
+- Spatie Permission
+- Laravel Datatables
+- Vite + Blade
+- MySQL
+
+## License
+
+MIT License
+```
 
