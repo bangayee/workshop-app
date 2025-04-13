@@ -68,7 +68,7 @@ class DashboardController extends Controller
 
     // Count transactions grouped by week
     $weeklyTransactions = Transaction::select(
-        DB::raw('WEEK(order_date) as week'),
+        DB::raw('DATE_PART(\'week\', order_date) AS week'),
         DB::raw('COUNT(*) as count')
     )
     ->groupBy('week')
