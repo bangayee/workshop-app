@@ -58,9 +58,9 @@ class DashboardController extends Controller
     {
             // Count transactions grouped by month
     $monthlyTransactions = Transaction::select(
-        DB::raw('MONTH(order_date) as month'),
-        DB::raw('COUNT(*) as count'),
-        DB::raw('SUM(total_quantity) as total_products')
+        DB::raw('EXTRACT(MONTH FROM order_date) as month'),
+        DB::raw('COUNT(*) AS count'),
+        DB::raw('SUM(total_quantity) AS total_products')
     )
     ->groupBy('month')
     ->orderBy('month')
