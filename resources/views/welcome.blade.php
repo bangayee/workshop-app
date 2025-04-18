@@ -56,12 +56,15 @@
                    
                     <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">This project is a demonstration of Laravel's capabilities, showcasing features such as:</p>
                     <ol class="mb-2 text-[#706f6c] dark:text-[#A1A09A] list-decimal pl-5">
-                        <li>1. Product customization with dynamic options</li>
-                        <li>2. Order tracking and status updates</li>
-                        <li>3. Role-based access control for different user types</li>
-                        <li>4. Responsive design for mobile and desktop</li>
+                        <li>Product customization with dynamic options</li>
+                        <li>Order tracking and status updates</li>
+                        <li>Role-based access control for different user types</li>
+                        <li>Responsive design for mobile and desktop</li>
                     </ol>
                     
+                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]"><b>Credential</b><br>
+                    Email: admin@gmail.com<br>
+                    Password: 12345678</p>
                 </div>
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
                     <img
