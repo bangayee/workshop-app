@@ -54,7 +54,7 @@ A Laravel-based custom furniture pre-order management system. This app enables u
 
 ## Tech Stack
 
-- Laravel 10.x
+- Laravel 12
 - Laravel Breeze (Tailwind + Alpine)
 - Spatie Permission
 - Laravel Datatables
@@ -62,4 +62,8 @@ A Laravel-based custom furniture pre-order management system. This app enables u
 - MySQL
 
 
+## DEMO
 
+- **URL:** `https://workshop-app-main-mfx7ob.laravel.cloud`
+- **Email:** `admin@gmail.com`
+- **Password:** `12345678`
