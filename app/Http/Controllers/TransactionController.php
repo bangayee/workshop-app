@@ -260,7 +260,7 @@ class TransactionController extends Controller
 
                     $transaction_detail_product = new TransactionDetailProduct();
                     $transaction_detail_product->detail_id = $transaction_detail_id;
-                    $transaction_detail_product->attribute_id = $key;
+                    $transaction_detail_product->attributes_id = $key;
 
                     if ($attribute && $attribute->type == 'image' && $request->hasFile("attribute.$key")) {
                         // Handle image upload
@@ -325,7 +325,7 @@ class TransactionController extends Controller
         $transaction_detail = TransactionDetail::where('id',$id)->first();
         $transaction = Transaction::where('id',$transaction_detail->transaction_id)->with('customer')->first();
         $transaction_detail_attributes = TransactionDetailProduct::where('detail_id', $transaction_detail->id)
-        ->pluck('attributes_value', 'attribute_id')
+        ->pluck('attributes_value', 'attributes_id')
         ->toArray();
 
         // dd($transaction); exit;
@@ -391,7 +391,7 @@ class TransactionController extends Controller
 
                         $transaction_detail_product = new TransactionDetailProduct();
                         $transaction_detail_product->detail_id = $id;
-                        $transaction_detail_product->attribute_id = $key;
+                        $transaction_detail_product->attributes_id = $key;
 
                         // exit;
                         // // echo "<br>+".$attribute->type;
@@ -428,11 +428,11 @@ class TransactionController extends Controller
                 foreach($request->attribute_old_image as $key => $value){
                     $transaction_detail_product = new TransactionDetailProduct();
                         $transaction_detail_product->detail_id = $id;
-                        $transaction_detail_product->attribute_id = $key;
+                        $transaction_detail_product->attributes_id = $key;
 
                     $transaction_detail_product->attributes_value = $request->input("attribute_old_image.$key");
                     $transaction_detail_product->save();
-                    // echo $transaction_detail_product->attribute_id = $key;
+                    // echo $transaction_detail_product->attributes_id = $key;
                 }
             }
            

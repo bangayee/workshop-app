@@ -41,7 +41,7 @@ class TransactionDetail extends Model
 
     // public function attribute()
     // {
-    //     return $this->belongsTo(Attribute::class, 'attribute_id');
+    //     return $this->belongsTo(Attribute::class, 'attributes_id');
     // }
 }
 // join('suppliers', 'suppliers.id', '=', 'transaction_detail_product_suppliers.supplier_id')

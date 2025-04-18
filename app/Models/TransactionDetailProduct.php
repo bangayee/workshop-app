@@ -12,7 +12,7 @@ class TransactionDetailProduct extends Model
 
     public function attribute()
     {
-        return $this->belongsTo(Attribute::class, 'attribute_id');
+        return $this->belongsTo(Attribute::class, 'attributes_id');
     }
 
     // public function supplier()
