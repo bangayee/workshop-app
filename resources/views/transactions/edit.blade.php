@@ -173,11 +173,11 @@
                     <div class="form-group">
                         <label>{{$productTransaction->attribute->name}}</label>
                             @if ($productTransaction->attribute->type == 'image')
-                                <br><img src="{{ asset('storage/uploads/product_details/' . $productTransaction->attribute_value) }}" class="img-fluid" style="max-width: 500px;">
+                                <br><img src="{{ asset('storage/uploads/product_details/' . $productTransaction->attributes_value) }}" class="img-fluid" style="max-width: 500px;">
                             @elseif($productTransaction->attribute->type == 'text')
-                                <textarea class="form-control"  rows="3" readonly>{{ $productTransaction->attribute_value }}</textarea>
+                                <textarea class="form-control"  rows="3" readonly>{{ $productTransaction->attributes_value }}</textarea>
                             @else
-                                <input type="text" class="form-control" value="{{ $productTransaction->attribute_value }}" readonly>
+                                <input type="text" class="form-control" value="{{ $productTransaction->attributes_value }}" readonly>
                             @endif
                         
                     </div>

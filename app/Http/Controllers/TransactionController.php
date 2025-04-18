@@ -268,9 +268,9 @@ class TransactionController extends Controller
                         $fileName = time() . '_' . $file->getClientOriginalName();
                         $file->move(public_path('storage/uploads/product_details'), $fileName);
 
-                        $transaction_detail_product->attribute_value = $fileName; // Save the file name
+                        $transaction_detail_product->attributes_value = $fileName; // Save the file name
                     } else {
-                        $transaction_detail_product->attribute_value = $value; // Save the text or other value
+                        $transaction_detail_product->attributes_value = $value; // Save the text or other value
                     }
 
                     $transaction_detail_product->note = $request->transaction_id;
@@ -325,7 +325,7 @@ class TransactionController extends Controller
         $transaction_detail = TransactionDetail::where('id',$id)->first();
         $transaction = Transaction::where('id',$transaction_detail->transaction_id)->with('customer')->first();
         $transaction_detail_attributes = TransactionDetailProduct::where('detail_id', $transaction_detail->id)
-        ->pluck('attribute_value', 'attribute_id')
+        ->pluck('attributes_value', 'attribute_id')
         ->toArray();
 
         // dd($transaction); exit;
@@ -402,15 +402,15 @@ class TransactionController extends Controller
                                 $fileName = time() . '_' . $file->getClientOriginalName();
                                 $file->move(public_path('storage/uploads/product_details'), $fileName);
                         
-                                $transaction_detail_product->attribute_value = $fileName;
+                                $transaction_detail_product->attributes_value = $fileName;
                             } else {
                                 // Use the existing image if no new file is uploaded
-                                $transaction_detail_product->attribute_value = $request->input("attribute_old_image.$key");
+                                $transaction_detail_product->attributes_value = $request->input("attribute_old_image.$key");
                             }
                         } else {
                            
-                            $transaction_detail_product->attribute_value = $value;
-                            // echo "<br>-".$transaction_detail_product->attribute_value;
+                            $transaction_detail_product->attributes_value = $value;
+                            // echo "<br>-".$transaction_detail_product->attributes_value;
                            
                         }
 
@@ -430,7 +430,7 @@ class TransactionController extends Controller
                         $transaction_detail_product->detail_id = $id;
                         $transaction_detail_product->attribute_id = $key;
 
-                    $transaction_detail_product->attribute_value = $request->input("attribute_old_image.$key");
+                    $transaction_detail_product->attributes_value = $request->input("attribute_old_image.$key");
                     $transaction_detail_product->save();
                     // echo $transaction_detail_product->attribute_id = $key;
                 }
