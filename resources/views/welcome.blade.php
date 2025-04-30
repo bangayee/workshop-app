@@ -58,7 +58,9 @@
                     
                     <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]"><b>Credential</b><br>
                     Email: admin@gmail.com<br>
-                    Password: 12345678</p>
+                    Password: 12345678</p><br>
+
+                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]"><b><u><a href="{{route('login')}}">Login here</a></u></b><br>
                 </div>
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
                     <img
